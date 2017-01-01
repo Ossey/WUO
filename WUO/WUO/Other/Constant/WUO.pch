@@ -1,0 +1,23 @@
+
+//
+//  WUO.pch
+//  WUO
+//
+//  Created by mofeini on 17/1/1.
+//  Copyright © 2017年 com.test.demo. All rights reserved.
+//
+
+#ifndef WUO_pch
+#define WUO_pch
+
+#import "UIImage+XYExtension.h"
+#import "XYConstant.h"
+
+#define kScreenW  CGRectGetWidth([UIScreen mainScreen].bounds)
+#define kScreenH CGRectGetHeight([UIScreen mainScreen].bounds)
+
+#define kColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define kTabBarItemTextColor_Sel [UIColor colorWithRed:71/255.0 green:70/255.0 blue:73/255.0 alpha:1.0]
+#define kRandomColor kColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), 1.0)
+
+#endif /* WUO_pch */
