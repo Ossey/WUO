@@ -12,6 +12,7 @@
 
 #import "UIImage+XYExtension.h"
 #import "XYConstant.h"
+#import <Masonry.h>
 
 #define kScreenW  CGRectGetWidth([UIScreen mainScreen].bounds)
 #define kScreenH CGRectGetHeight([UIScreen mainScreen].bounds)

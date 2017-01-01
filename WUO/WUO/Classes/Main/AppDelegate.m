@@ -8,23 +8,34 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "XYLoginRegisterPlayerController.h"
+#import "XYCustomNavController.h"
 
-
-
-@interface AppDelegate ()
+@interface AppDelegate () {
+    
+    BOOL _isLogin;
+}
 
 @end
 
 @implementation AppDelegate
 
 
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    UIViewController *rootVc = nil;
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    MainTabBarController *mainVc = [MainTabBarController new];
-    self.window.rootViewController = mainVc;
+    
+    if (_isLogin) {
+        MainTabBarController *mainVc = [MainTabBarController new];
+        rootVc = mainVc;
+    } else {
+        XYLoginRegisterPlayerController *playerVc = [XYLoginRegisterPlayerController new];
+        XYCustomNavController *customNav = [[XYCustomNavController alloc] initWithRootViewController:playerVc];
+        rootVc = customNav;
+    }
+    self.window.rootViewController = rootVc;
     [self.window makeKeyAndVisible];
     
     return YES;

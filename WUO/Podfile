@@ -7,4 +7,5 @@ target 'WUO' do
 
   # Pods for WUO
 pod 'AFNetworking', '~> 3.1.0'
+pod 'Masonry', '~> 1.0.2'
 end
