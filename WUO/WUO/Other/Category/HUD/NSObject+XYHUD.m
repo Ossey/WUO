@@ -15,10 +15,10 @@ static const void *hudKey = &hudKey;
 
 - (void)showInfo:(NSString *)info {
 
-    if ([self isKindOfClass:[UIViewController class]] || [self isKindOfClass:[UIView class]]) {
-        
-        [[[UIAlertView alloc] initWithTitle:@"喵播" message:info delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil] show];
-    }
+//    if ([self isKindOfClass:[UIViewController class]] || [self isKindOfClass:[UIView class]]) {
+    
+        [[[UIAlertView alloc] initWithTitle:nil message:info delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+//    }
 }
 
 

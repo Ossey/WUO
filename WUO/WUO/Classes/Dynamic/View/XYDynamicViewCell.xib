@@ -18,12 +18,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="348.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine_HeadImage" translatesAutoresizingMaskIntoConstraints="NO" id="M6l-Mp-IHn">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M6l-Mp-IHn">
                         <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="Rb4-Yc-kxo"/>
                             <constraint firstAttribute="width" constant="40" id="aOX-jA-Igd"/>
                         </constraints>
+                        <string key="image">
+mine_HeadImage</string>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ossey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRW-dk-tbF">
                         <rect key="frame" x="60" y="10" width="43" height="18"/>
@@ -50,13 +53,13 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SM2-7p-WQC" userLabel="标题">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SM2-7p-WQC" userLabel="标题">
                                 <rect key="frame" x="0.0" y="139.5" width="250" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0m-zw-YPB" userLabel="内容文本">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0m-zw-YPB" userLabel="内容文本">
                                 <rect key="frame" x="0.0" y="167.5" width="250" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -229,18 +232,30 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="commentCountBtn" destination="wPt-m7-10n" id="60h-YA-sj6"/>
+                <outlet property="contenLabel" destination="i0m-zw-YPB" id="7qu-ZE-c8j"/>
+                <outlet property="headerImageView" destination="M6l-Mp-IHn" id="6lg-Av-2HC"/>
                 <outlet property="investBtn" destination="4FP-1W-d3M" id="Ms6-yc-cTM"/>
+                <outlet property="investCountBtn" destination="B9w-8R-CDa" id="n5G-JK-oT3"/>
+                <outlet property="nameLabel" destination="SRW-dk-tbF" id="LMg-Bp-hgc"/>
+                <outlet property="praiseCountBtn" destination="zcP-ai-QHo" id="ZsN-T3-05s"/>
+                <outlet property="readCountBtn" destination="U7x-ER-G4v" id="Kpf-7E-Xmq"/>
+                <outlet property="shareCountBtn" destination="Lwv-iY-n28" id="WTB-X8-Mhy"/>
+                <outlet property="title_label" destination="SM2-7p-WQC" id="MQf-Uh-06i"/>
             </connections>
             <point key="canvasLocation" x="-7" y="-54.5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image width="16" height="16">
+            <string key="name">
+mine_HeadImage</string>
+        </image>
         <image name="Home_detailComment" width="35" height="35"/>
         <image name="Home_detailPraise" width="35" height="35"/>
         <image name="Home_detailPraiseSel" width="35" height="35"/>
         <image name="Home_detailReward" width="35" height="35"/>
         <image name="Home_detailShare" width="35" height="35"/>
         <image name="Home_trendsReadCount" width="25" height="15"/>
-        <image name="mine_HeadImage" width="90" height="90"/>
     </resources>
 </document>

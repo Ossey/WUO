@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AA5ED7ABFC4ABF5B6FD3A4370A5F47A8'
+               BlueprintIdentifier = 'EFE6005F7F32078A2D1A6B8EE7C08DCB'
                BlueprintName = 'Pods-WUO'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-WUO.a'>

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class XYDynamicItem;
+
+
 @interface XYDynamicViewCell : UITableViewCell
+
+@property (nonatomic, strong) XYDynamicItem *item;
 
 @end

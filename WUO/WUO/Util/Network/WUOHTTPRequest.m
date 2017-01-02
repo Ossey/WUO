@@ -52,7 +52,7 @@ static id _instance;
 }
 
 // 动态接口
-+ (void)dynamicFinished:(FinishedCallBack)finishedCallBack {
++ (void)dynamicWithIdstamp:(NSString *)idstamp finished:(FinishedCallBack)finishedCallBack {
     
     XYLoginInfoItem *loginInfoItem = [WUOHTTPRequest userLoginInfoItem];
     // 设置请求头部
@@ -61,7 +61,7 @@ static id _instance;
     
     NSString *urlStr = @"http://me.api.kfit.com.cn/me-api/rest/api/trend/getAll";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setValue:@"" forKey:@"idstamp"];
+    [parameters setValue:idstamp forKey:@"idstamp"];
     [parameters setValue:@15 forKey:@"pageNum"];
     [parameters setValue:@1 forKey:@"type"];
     

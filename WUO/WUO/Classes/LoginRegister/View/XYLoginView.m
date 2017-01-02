@@ -62,16 +62,15 @@
         NSDictionary *responseDict = responseObject;
         [responseDict writeToFile:kLoginInfoPath atomically:YES];
         
-        if ([responseObject[@"codeMsg"] isKindOfClass:[NSString class]] && [responseObject[@"codeMsg"] isEqualToString:@"成功"]) {
+        if ([responseObject[@"code"] integerValue] == 0) {
             
-            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            delegate->_isLogin = YES;
-            
-            [[NSUserDefaults standardUserDefaults] setObject:@(delegate->_isLogin) forKey:XYUserLoginStatuKey];
-            
-            MainTabBarController *mainVc = [MainTabBarController new];
-            [UIApplication sharedApplication].keyWindow.rootViewController = mainVc;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                delegate.isLogin = YES;
+            });
         }
+        
+        [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"code"] forKey:XYUserLoginStatuKey];
         
         [self xy_showMessage:[NSString stringWithFormat:@"登录%@", responseObject[@"codeMsg"]]];
     }];

@@ -13,7 +13,7 @@
 @interface XYLoginInfoItem : NSObject
 
 @property (nonatomic, copy) NSString *basePath;
-@property (nonatomic, assign) NSInteger code;        // 登录状态码  0成功
+@property (nonatomic, assign) NSInteger code;        // 登录状态码  0成功 -2未登录
 @property (nonatomic, copy) NSString *codeMsg;
 @property (nonatomic, strong) NSDictionary *imUser;  // 即时通讯用户
 @property (nonatomic, strong) XYUserInfoItem *userInfo;
