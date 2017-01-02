@@ -9,3 +9,4 @@
 #import <UIKit/UIKit.h>
 
 NSString * const XYTabBarButtonDidRepeatClickNotification = @"XYTabBarButtonDidRepeatClickNotification";
+NSString * const XYUserLoginStatuKey = @"XYUserLoginStatuKey";

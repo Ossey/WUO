@@ -6,8 +6,15 @@
 //  Copyright © 2017年 com.test.demo. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "XYNetworkRequest.h"
 
-@interface WUOHTTPRequest : XYNetworkRequest
+@class XYNetworkRequest;
+@interface WUOHTTPRequest : NSObject
+
+// 开启菊花
++ (void)setActivityIndicator:(BOOL)enabled;
+
++ (void)loginWithAccount:(NSString *)account pwd:(NSString *)pwd finished:(FinishedCallBack)finishedCallBack;
 
 @end

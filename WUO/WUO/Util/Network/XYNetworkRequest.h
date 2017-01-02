@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 // 网络请求类型的枚举
 typedef NS_ENUM(NSInteger, XYNetworkRequestType) {
     XYNetworkRequestTypeGET = 0,  // GET请求

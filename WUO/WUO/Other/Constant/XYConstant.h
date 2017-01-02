@@ -10,3 +10,5 @@
 
 // 重复点击tabBarButton的通知
 UIKIT_EXTERN NSString * const XYTabBarButtonDidRepeatClickNotification;
+// 用户登录状态
+UIKIT_EXTERN NSString * const XYUserLoginStatuKey;
