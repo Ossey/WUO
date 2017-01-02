@@ -1,5 +1,5 @@
 //
-//  XYLoginRegisterPlayerController.h
+//  XYLaunchPlayerController.h
 //  WUO
 //
 //  Created by mofeini on 17/1/1.
@@ -8,6 +8,6 @@
 
 #import "XYProfileBaseController.h"
 
-@interface XYLoginRegisterPlayerController : XYProfileBaseController
+@interface XYLaunchPlayerController : XYProfileBaseController
 
 @end

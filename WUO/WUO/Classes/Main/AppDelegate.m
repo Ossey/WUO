@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
-#import "XYLoginRegisterPlayerController.h"
+#import "XYLaunchPlayerController.h"
 #import "XYCustomNavController.h"
 
 @interface AppDelegate () {
@@ -31,7 +31,7 @@
         MainTabBarController *mainVc = [MainTabBarController new];
         rootVc = mainVc;
     } else {
-        XYLoginRegisterPlayerController *playerVc = [XYLoginRegisterPlayerController new];
+        XYLaunchPlayerController *playerVc = [XYLaunchPlayerController new];
         XYCustomNavController *customNav = [[XYCustomNavController alloc] initWithRootViewController:playerVc];
         rootVc = customNav;
     }
