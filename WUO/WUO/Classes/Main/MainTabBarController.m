@@ -15,6 +15,7 @@
 #import "MainNavigationController.h"
 #import "MainTabBar.h"
 
+
 #define tabBarHeight CGRectGetHeight(self.tabBar.bounds)
 #define standOutHeight 12.0f // 中间突出部分的高度
 
@@ -47,6 +48,7 @@
     [self setupChildViewController:[XYMineViewController new]];
     
     [self setupTabBar];
+    
 }
 
 - (void)setupTabBar {
@@ -114,6 +116,7 @@
     [imageView.layer addSublayer:layer];
     return imageView;
 }
+
 
 
 

@@ -228,6 +228,9 @@
                     <constraint firstItem="SRW-dk-tbF" firstAttribute="leading" secondItem="M6l-Mp-IHn" secondAttribute="trailing" constant="10" id="ueQ-hK-DD8"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="investBtn" destination="4FP-1W-d3M" id="Ms6-yc-cTM"/>
+            </connections>
             <point key="canvasLocation" x="-7" y="-54.5"/>
         </tableViewCell>
     </objects>

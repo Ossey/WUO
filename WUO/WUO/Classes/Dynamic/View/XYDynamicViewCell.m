@@ -8,11 +8,18 @@
 
 #import "XYDynamicViewCell.h"
 
+@interface XYDynamicViewCell ()
+@property (weak, nonatomic) IBOutlet UIButton *investBtn;
+
+@end
+
 @implementation XYDynamicViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
+    self.investBtn.layer.cornerRadius = 5;
+    [self.investBtn.layer setMasksToBounds:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

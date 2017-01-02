@@ -8,10 +8,13 @@
 
 #import "XYDynamicViewController.h"
 #import "XYDynamicViewCell.h"
+#import "WUOHTTPRequest.h"
+
 
 @interface XYDynamicViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+
 
 @end
 
@@ -26,6 +29,17 @@ static NSString * const cellIdentifier = @"XYDynamicViewCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"XYDynamicViewCell" bundle:nil] forCellReuseIdentifier:@"XYDynamicViewCell"];
+    
+    [WUOHTTPRequest dynamicFinished:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+       
+        if (error) {
+            [self xy_showMessage:@"网络请求失败"];
+            return;
+        }
+        
+        NSLog(@"%@", responseObject);
+    }];
+    
 }
 
 - (UITableView *)tableView {

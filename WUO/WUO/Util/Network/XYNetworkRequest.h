@@ -7,7 +7,7 @@
 //  网络请求工具类
 
 #import <Foundation/Foundation.h>
-
+#import <AFNetworking.h>
 
 // 网络请求类型的枚举
 typedef NS_ENUM(NSInteger, XYNetworkRequestType) {
@@ -34,9 +34,10 @@ typedef void(^FinishedCallBack)(NSURLSessionDataTask *task, id responseObject, N
 typedef void(^ProgressCallBack)(int64_t bytesWritten, int64_t totalBytesWritten, int64_t totalBytesExpectedToWrite);
 
 
-@class XYFileConfig;
+@class XYFileConfig, AFHTTPSessionManager;
 @interface XYNetworkRequest : NSObject
 
+@property (nonatomic) AFHTTPSessionManager *manager;
 + (instancetype)shareInstance;
 
 /**

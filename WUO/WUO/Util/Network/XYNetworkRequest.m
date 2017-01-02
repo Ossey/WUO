@@ -7,7 +7,7 @@
 //  主要是做GET、POST请求，请求完成后直接以数组或者字典的形式返回
 
 #import "XYNetworkRequest.h"
-#import <AFNetworking.h>
+
 
 /**
  * 请求成功回调的block
@@ -139,11 +139,15 @@ static XYNetworkRequest *_instance;
 
 
 - (AFHTTPSessionManager *)manager {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil];
-    manager.requestSerializer.timeoutInterval = 10; // 请求超时时间
-    return manager;
+    if (_manager == nil) {
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/xml", @"text/plain", nil];
+        manager.requestSerializer.timeoutInterval = 10; // 请求超时时间
+        _manager = manager;
+    }
+    return _manager;
 }
 
 /**

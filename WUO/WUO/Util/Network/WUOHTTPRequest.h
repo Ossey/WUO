@@ -9,12 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "XYNetworkRequest.h"
 
-@class XYNetworkRequest;
+@class XYNetworkRequest, XYLoginInfoItem;
 @interface WUOHTTPRequest : NSObject
+
++ (instancetype)shareInstance;
 
 // 开启菊花
 + (void)setActivityIndicator:(BOOL)enabled;
 
+// 登录接口
 + (void)loginWithAccount:(NSString *)account pwd:(NSString *)pwd finished:(FinishedCallBack)finishedCallBack;
 
+// 动态接口
++ (void)dynamicFinished:(FinishedCallBack)finishedCallBack;
+
+// 获取登录用户信息模型
++ (XYLoginInfoItem *)userLoginInfoItem;
 @end

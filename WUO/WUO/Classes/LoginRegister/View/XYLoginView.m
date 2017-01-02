@@ -28,6 +28,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+
+    
     self.loginBtn.layer.cornerRadius = 5;
     [self.loginBtn.layer setMasksToBounds:YES];
     
@@ -56,10 +58,13 @@
             NSLog(@"%@", error.localizedDescription);
             return;
         }
+        // 写入本地
+        NSDictionary *responseDict = responseObject;
+        [responseDict writeToFile:kLoginInfoPath atomically:YES];
         
         if ([responseObject[@"codeMsg"] isKindOfClass:[NSString class]] && [responseObject[@"codeMsg"] isEqualToString:@"成功"]) {
             
-            AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+            AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             delegate->_isLogin = YES;
             
             [[NSUserDefaults standardUserDefaults] setObject:@(delegate->_isLogin) forKey:XYUserLoginStatuKey];
