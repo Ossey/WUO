@@ -8,6 +8,14 @@
 
 #import "XYProfileBaseController.h"
 
+typedef NS_ENUM(NSInteger, XYLoginRegisterType) {
+    
+    XYLoginRegisterTypeRegister = 1,
+    XYLoginRegisterTypeLogin
+};
+
 @interface XYLoginRegisterController : XYProfileBaseController
+
+- (instancetype)initWithType:(XYLoginRegisterType)type;
 
 @end

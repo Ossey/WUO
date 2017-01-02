@@ -8,8 +8,7 @@
 
 #import "XYLaunchPlayerController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "XYLoginController.h"
-#import "XYRegisterController.h"
+#import "XYLoginRegisterController.h"
 #import "XYLaunchView.h"
 
 #define btnPadding 10
@@ -20,6 +19,7 @@
 @interface XYLaunchPlayerController ()
 
 @property (nonatomic, strong) AVPlayer *player;
+@property (nonatomic, strong) AVPlayerItem *playerItem;
 
 @end
 
@@ -44,9 +44,9 @@
         
         UIViewController *vc = nil;
         if (type == XYLaunchViewTypeRegister) {
-            vc = [XYRegisterController new];
+            vc = [[XYLoginRegisterController alloc] initWithType:XYLoginRegisterTypeRegister];
         } else if (type == XYLaunchViewTypeLogin) {
-            vc = [XYLoginController new];
+            vc = [[XYLoginRegisterController alloc] initWithType:XYLoginRegisterTypeLogin];
         }
         
         [weakSelf.navigationController pushViewController:vc animated:YES];
@@ -57,24 +57,29 @@
 - (void)setupPlayer {
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"launch" ofType:@"mp4"]];
-    AVAsset *asset = [AVAsset assetWithURL:url];
+    AVURLAsset *asset = [AVURLAsset assetWithURL:url];
     AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithAsset:asset];
     AVPlayer *player = [AVPlayer playerWithPlayerItem:playerItem];
-    player.externalPlaybackVideoGravity = AVLayerVideoGravityResizeAspectFill;
     AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-    playerLayer.frame = [UIScreen mainScreen].bounds;
+    playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    playerLayer.frame = self.view.bounds;
     [self.view.layer addSublayer:playerLayer];
     self.player = player;
+    self.playerItem = playerItem;
+    
 }
 
 - (void)initObserver {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerPlayToEndTime:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goOnPlay:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerPasue) name:UIApplicationDidEnterBackgroundNotification object:nil];
 
 }
+
+
 
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -91,8 +96,13 @@
     [self.player pause];
 }
 
-- (void)playerItemDidReachEnd:(NSNotification *)note {
+- (void)playerPlayToEndTime:(NSNotification *)note {
+    
+    [self.playerItem seekToTime:CMTimeMake(0, 1)];
+    [self.player play];
+}
 
+- (void)goOnPlay:(NSNotification *)note {
     [self.player play];
 }
 
@@ -108,7 +118,7 @@
 - (void)dealloc {
     
     NSLog(@"%s", __FUNCTION__);
-    
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

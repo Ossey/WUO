@@ -22,14 +22,17 @@
 		183F93FF1E19173B00875416 /* MainTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F93FE1E19173B00875416 /* MainTabBar.m */; };
 		183F94021E19182500875416 /* XYConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F94011E19182500875416 /* XYConstant.m */; };
 		183F94051E191CBA00875416 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F94041E191CBA00875416 /* MainNavigationController.m */; };
-		183F940A1E191FBF00875416 /* XYLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F94091E191FBF00875416 /* XYLoginController.m */; };
 		183F940D1E1948AC00875416 /* XYLaunchPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F940C1E1948AC00875416 /* XYLaunchPlayerController.m */; };
 		183F940F1E194B7400875416 /* launch.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 183F940E1E194B6500875416 /* launch.mp4 */; };
-		183F94121E1959F700875416 /* XYRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F94111E1959F700875416 /* XYRegisterController.m */; };
 		183F941F1E195B8500875416 /* XYProfileBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F941C1E195B8500875416 /* XYProfileBaseController.m */; };
 		183F94201E195B8500875416 /* XYCustomNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F941E1E195B8500875416 /* XYCustomNavController.m */; };
 		183F94231E1960CF00875416 /* XYLoginRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F94221E1960CF00875416 /* XYLoginRegisterController.m */; };
 		18CA21C81E19DACD005F1C87 /* XYLaunchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA21C71E19DACD005F1C87 /* XYLaunchView.m */; };
+		18CA21CB1E19EFBB005F1C87 /* WUOHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA21CA1E19EFBB005F1C87 /* WUOHTTPRequest.m */; };
+		18CA21CE1E19F64F005F1C87 /* XYThirdPartyLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA21CD1E19F64F005F1C87 /* XYThirdPartyLoginView.m */; };
+		18CA21D21E19F67C005F1C87 /* XYLoginRegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18CA21D11E19F67C005F1C87 /* XYLoginRegisterView.xib */; };
+		18CA21D61E19FC22005F1C87 /* UIView+XYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA21D51E19FC22005F1C87 /* UIView+XYExtension.m */; };
+		18CA21D91E1A042A005F1C87 /* XYLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA21D81E1A042A005F1C87 /* XYLoginView.m */; };
 		4CA5914E2A31A0C3F72B5603 /* libPods-WUO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E86081FDC45251230ADAA5EE /* libPods-WUO.a */; };
 /* End PBXBuildFile section */
 
@@ -65,13 +68,9 @@
 		183F94011E19182500875416 /* XYConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYConstant.m; sourceTree = "<group>"; };
 		183F94031E191CBA00875416 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
 		183F94041E191CBA00875416 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
-		183F94081E191FBF00875416 /* XYLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYLoginController.h; sourceTree = "<group>"; };
-		183F94091E191FBF00875416 /* XYLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYLoginController.m; sourceTree = "<group>"; };
 		183F940B1E1948AC00875416 /* XYLaunchPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYLaunchPlayerController.h; sourceTree = "<group>"; };
 		183F940C1E1948AC00875416 /* XYLaunchPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYLaunchPlayerController.m; sourceTree = "<group>"; };
 		183F940E1E194B6500875416 /* launch.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = launch.mp4; sourceTree = "<group>"; };
-		183F94101E1959F700875416 /* XYRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRegisterController.h; sourceTree = "<group>"; };
-		183F94111E1959F700875416 /* XYRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRegisterController.m; sourceTree = "<group>"; };
 		183F941B1E195B8500875416 /* XYProfileBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProfileBaseController.h; sourceTree = "<group>"; };
 		183F941C1E195B8500875416 /* XYProfileBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProfileBaseController.m; sourceTree = "<group>"; };
 		183F941D1E195B8500875416 /* XYCustomNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCustomNavController.h; sourceTree = "<group>"; };
@@ -80,6 +79,15 @@
 		183F94221E1960CF00875416 /* XYLoginRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYLoginRegisterController.m; sourceTree = "<group>"; };
 		18CA21C61E19DACD005F1C87 /* XYLaunchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYLaunchView.h; sourceTree = "<group>"; };
 		18CA21C71E19DACD005F1C87 /* XYLaunchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYLaunchView.m; sourceTree = "<group>"; };
+		18CA21C91E19EFBB005F1C87 /* WUOHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WUOHTTPRequest.h; sourceTree = "<group>"; };
+		18CA21CA1E19EFBB005F1C87 /* WUOHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WUOHTTPRequest.m; sourceTree = "<group>"; };
+		18CA21CC1E19F64F005F1C87 /* XYThirdPartyLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYThirdPartyLoginView.h; sourceTree = "<group>"; };
+		18CA21CD1E19F64F005F1C87 /* XYThirdPartyLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYThirdPartyLoginView.m; sourceTree = "<group>"; };
+		18CA21D11E19F67C005F1C87 /* XYLoginRegisterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XYLoginRegisterView.xib; sourceTree = "<group>"; };
+		18CA21D41E19FC22005F1C87 /* UIView+XYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XYExtension.h"; sourceTree = "<group>"; };
+		18CA21D51E19FC22005F1C87 /* UIView+XYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XYExtension.m"; sourceTree = "<group>"; };
+		18CA21D71E1A042A005F1C87 /* XYLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYLoginView.h; sourceTree = "<group>"; };
+		18CA21D81E1A042A005F1C87 /* XYLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYLoginView.m; sourceTree = "<group>"; };
 		67309620AA4EBE37FE0F0D03 /* Pods-WUO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WUO.release.xcconfig"; path = "Pods/Target Support Files/Pods-WUO/Pods-WUO.release.xcconfig"; sourceTree = "<group>"; };
 		E86081FDC45251230ADAA5EE /* libPods-WUO.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WUO.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6E3676299F1A792BF557646 /* Pods-WUO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WUO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WUO/Pods-WUO.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +156,7 @@
 		183F93C11E18F1E900875416 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				18CA21D31E19FC22005F1C87 /* UIView */,
 				183F93F81E18F96800875416 /* UIImage */,
 			);
 			path = Category;
@@ -390,6 +399,8 @@
 				183F93E11E18F2B500875416 /* Reachability.m */,
 				183F93E21E18F2B500875416 /* XYNetworkRequest.h */,
 				183F93E31E18F2B500875416 /* XYNetworkRequest.m */,
+				18CA21C91E19EFBB005F1C87 /* WUOHTTPRequest.h */,
+				18CA21CA1E19EFBB005F1C87 /* WUOHTTPRequest.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -406,12 +417,13 @@
 		183F94071E191F9F00875416 /* LoginRegister */ = {
 			isa = PBXGroup;
 			children = (
-				183F94081E191FBF00875416 /* XYLoginController.h */,
-				183F94091E191FBF00875416 /* XYLoginController.m */,
-				183F94101E1959F700875416 /* XYRegisterController.h */,
-				183F94111E1959F700875416 /* XYRegisterController.m */,
 				183F94211E1960CF00875416 /* XYLoginRegisterController.h */,
 				183F94221E1960CF00875416 /* XYLoginRegisterController.m */,
+				18CA21D71E1A042A005F1C87 /* XYLoginView.h */,
+				18CA21D81E1A042A005F1C87 /* XYLoginView.m */,
+				18CA21CC1E19F64F005F1C87 /* XYThirdPartyLoginView.h */,
+				18CA21CD1E19F64F005F1C87 /* XYThirdPartyLoginView.m */,
+				18CA21D11E19F67C005F1C87 /* XYLoginRegisterView.xib */,
 				183F940B1E1948AC00875416 /* XYLaunchPlayerController.h */,
 				183F940C1E1948AC00875416 /* XYLaunchPlayerController.m */,
 				18CA21C61E19DACD005F1C87 /* XYLaunchView.h */,
@@ -429,6 +441,15 @@
 				183F941E1E195B8500875416 /* XYCustomNavController.m */,
 			);
 			path = CustomNav;
+			sourceTree = "<group>";
+		};
+		18CA21D31E19FC22005F1C87 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				18CA21D41E19FC22005F1C87 /* UIView+XYExtension.h */,
+				18CA21D51E19FC22005F1C87 /* UIView+XYExtension.m */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		3BA65E9CF7E4969E5806F138 /* Pods */ = {
@@ -510,6 +531,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18CA21D21E19F67C005F1C87 /* XYLoginRegisterView.xib in Resources */,
 				183F940F1E194B7400875416 /* launch.mp4 in Resources */,
 				183F939B1E18BFA200875416 /* Assets.xcassets in Resources */,
 			);
@@ -573,21 +595,23 @@
 				183F93EE1E18F49900875416 /* XYDynamicViewController.m in Sources */,
 				183F94201E195B8500875416 /* XYCustomNavController.m in Sources */,
 				183F94021E19182500875416 /* XYConstant.m in Sources */,
+				18CA21D61E19FC22005F1C87 /* UIView+XYExtension.m in Sources */,
 				18CA21C81E19DACD005F1C87 /* XYLaunchView.m in Sources */,
 				183F93F41E18F4D100875416 /* XYInvestViewController.m in Sources */,
 				183F93901E18BFA200875416 /* main.m in Sources */,
 				183F940D1E1948AC00875416 /* XYLaunchPlayerController.m in Sources */,
 				183F941F1E195B8500875416 /* XYProfileBaseController.m in Sources */,
+				18CA21CE1E19F64F005F1C87 /* XYThirdPartyLoginView.m in Sources */,
 				183F93E81E18F44200875416 /* MainTabBarController.m in Sources */,
 				183F93E41E18F2B500875416 /* Reachability.m in Sources */,
 				183F93FB1E18F96800875416 /* UIImage+XYExtension.m in Sources */,
 				183F93F11E18F4A800875416 /* XYFindViewController.m in Sources */,
-				183F940A1E191FBF00875416 /* XYLoginController.m in Sources */,
-				183F94121E1959F700875416 /* XYRegisterController.m in Sources */,
 				183F93E51E18F2B500875416 /* XYNetworkRequest.m in Sources */,
 				183F93FF1E19173B00875416 /* MainTabBar.m in Sources */,
 				183F93DC1E18F2A400875416 /* AppDelegate.m in Sources */,
+				18CA21CB1E19EFBB005F1C87 /* WUOHTTPRequest.m in Sources */,
 				183F93EB1E18F47E00875416 /* XYComposeViewController.m in Sources */,
+				18CA21D91E1A042A005F1C87 /* XYLoginView.m in Sources */,
 				183F94231E1960CF00875416 /* XYLoginRegisterController.m in Sources */,
 				183F93F71E18F4E500875416 /* XYMineViewController.m in Sources */,
 				183F94051E191CBA00875416 /* MainNavigationController.m in Sources */,
