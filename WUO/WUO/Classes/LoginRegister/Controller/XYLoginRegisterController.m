@@ -62,7 +62,7 @@
 
 - (void)setupNavBar {
     
-    self.topBackgroundView.backgroundColor = [UIColor clearColor];
+    self.topBackgroundView.backgroundColor = [UIColor whiteColor];
     self.shadowLineView.backgroundColor = [UIColor whiteColor];
     
     [self xy_setBackBarTitle:nil titleColor:nil image:[UIImage imageNamed:@"Login_backSel"] forState:UIControlStateNormal];
@@ -80,7 +80,7 @@
         _scrollView.backgroundColor = [UIColor whiteColor];
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.contentSize = CGSizeMake(0, CGRectGetHeight(self.view.frame) + 10);
+        _scrollView.contentSize = CGSizeMake(0, CGRectGetHeight(self.view.frame) + 1);
         _scrollView.delegate = self;
         [self.view addSubview:_scrollView];
     }

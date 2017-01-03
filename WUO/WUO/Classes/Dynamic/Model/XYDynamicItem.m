@@ -13,12 +13,25 @@
 
 - (instancetype)initWithDict:(NSDictionary *)dict {
     if (self = [super init]) {
-        
+
         [self setValuesForKeysWithDictionary:dict];
+        
+        if (dict[@"imgList"]) {
+            NSMutableArray *temArrM = [NSMutableArray arrayWithCapacity:1];
+            for (id obj in dict[@"imgList"]) {
+                if ([obj isKindOfClass:[NSDictionary class]]) {
+                    XYDynamicImgItem *imgItm = [XYDynamicImgItem dynamicImgItemWithDict:obj];
+                    
+                    [temArrM addObject:imgItm];
+                }
+            }
+            self.imgList = [temArrM mutableCopy];
+        }
     }
     
     return self;
 }
+
 + (instancetype)dynamicItemWithDict:(NSDictionary *)dict {
     
     return [[self alloc] initWithDict:dict];
@@ -27,8 +40,52 @@
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {}
 
 - (NSURL *)headerImageURL {
+    NSString *fullPath = nil;
+    if ([self.head containsString:@"http://"]) {
+        fullPath = self.head;
+    } else {
+        fullPath = [[XYDynamicInfo shareInstance].basePath stringByAppendingString:self.head];
+    }
+    return [NSURL URLWithString:fullPath];
+}
+
+@end
+
+@implementation XYDynamicImgItem
+
+- (instancetype)initWithDict:(NSDictionary *)dict {
+    if (self = [super init]) {
+        [self setValuesForKeysWithDictionary:dict];
+    }
+    return self;
+}
++ (instancetype)dynamicImgItemWithDict:(NSDictionary *)dict {
     
-    return [self.dynamicInfo.basePath stringByAppendingString:self.head];
+    return [[self alloc] initWithDict:dict];
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {}
+
+
+// 处理数据
+- (NSURL *)imgFullURL {
+    
+    if (self.imgUrl) {
+        
+        return [NSURL URLWithString:[[XYDynamicInfo shareInstance].basePath stringByAppendingString:self.imgUrl]];
+    }
+    
+    return nil;
+}
+
+- (CGSize)imgSize {
+    
+    NSString *subStr = [self.imgUrl componentsSeparatedByString:@"jpg?"].lastObject;
+    NSArray *sizeStrs = [subStr componentsSeparatedByString:@"&"];
+    CGFloat width = [[sizeStrs[0] substringFromIndex:2] doubleValue];
+    CGFloat height = [[sizeStrs[1] substringFromIndex:2] doubleValue];
+    
+    return CGSizeMake(width, height);
 }
 
 @end

@@ -11,6 +11,8 @@
 #import "XYDynamicItem.h"
 #import "XYDynamicToolButton.h"
 #import "UIImage+XYExtension.h"
+#import "XYPictureCollectionView.h"
+#import "XYDynamicInfo.h"
 
 @interface XYDynamicViewCell ()
 @property (weak, nonatomic) IBOutlet UIButton *investBtn;
@@ -23,10 +25,31 @@
 @property (weak, nonatomic) IBOutlet XYDynamicToolButton *commentCountBtn;
 @property (weak, nonatomic) IBOutlet XYDynamicToolButton *investCountBtn;
 @property (weak, nonatomic) IBOutlet XYDynamicToolButton *praiseCountBtn;
+@property (weak, nonatomic) IBOutlet UILabel *jobLabel;
+@property (weak, nonatomic) IBOutlet XYPictureCollectionView *pictureCollectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *picBottomLayoutConst;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *picHeightLayoutConst;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *picWidthLayoutConst;
+@property (weak, nonatomic) IBOutlet UIView *toolView;
+
 
 @end
 
-@implementation XYDynamicViewCell
+@implementation XYDynamicViewCell //{
+    
+//    BOOL _isDrawing;
+//    NSInteger _drawColorFlag;
+//}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        //不透明，提升渲染性能
+        self.contentView.opaque = YES;
+    }
+    return self;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -45,21 +68,89 @@
 - (void)setItem:(XYDynamicItem *)item {
     
     _item = item;
+    self.pictureCollectionView.dynamicItem = item;
     
+    self.pictureCollectionView.hidden = item.imgCount == 0;
     [self.headerImageView sd_setImageWithURL:item.headerImageURL placeholderImage:[UIImage imageNamed:@"mine_HeadImage"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
         self.headerImageView.image = [self.headerImageView.image xy_circleImage];
     }];
-    
+    self.jobLabel.text = item.job;
+    self.jobLabel.hidden = !item.job.length;
     self.nameLabel.text = item.name;
     self.title_label.text = item.title;
     self.contenLabel.text = item.content;
-    [self.readCountBtn setTitle:[NSString stringWithFormat:@"%ld", item.readCount] forState:UIControlStateNormal];
+    self.contenLabel.hidden = !item.content.length;
+    [self.readCountBtn setTitle:[NSString stringWithFormat:@"%ld人预览", item.readCount] forState:UIControlStateNormal];
     
     [self.shareCountBtn setTitle:[NSString stringWithFormat:@"%ld", item.shareCount] forState:UIControlStateNormal];
     [self.commentCountBtn setTitle:[NSString stringWithFormat:@"%ld", item.commentCount] forState:UIControlStateNormal];
     [self.investCountBtn setTitle:[NSString stringWithFormat:@"%ld", item.rewardCount] forState:UIControlStateNormal];
     [self.praiseCountBtn setTitle:[NSString stringWithFormat:@"%ld", item.praiseCount] forState:UIControlStateNormal];
+    
+    CGSize picViewSize = [self caculatePicViewSize:item.imgList.count];
+    self.picWidthLayoutConst.constant = picViewSize.width;
+    self.picHeightLayoutConst.constant = picViewSize.height;
+    
+    [self layoutIfNeeded];
+    
+    CGFloat contentMaxY = 0.0;
+    // 计算cell的高度
+    if (item.content.length && item.title.length && self.pictureCollectionView.hidden) {
+        contentMaxY = CGRectGetMaxY(self.contenLabel.frame);
+    } else if (!item.content.length && item.title.length && !item.imgCount) {
+        contentMaxY = CGRectGetMaxY(self.title_label.frame);
+    } else if (item.content.length && item.title.length && !self.pictureCollectionView.hidden ) {
+        contentMaxY = CGRectGetMaxY(self.contenLabel.frame);
+    }
+    
+    if (item.cellHeight == 0) {
+        
+        [self layoutIfNeeded];
+        item.cellHeight = contentMaxY + CGRectGetHeight(self.toolView.frame) + 5 + 10 + 20 + CGRectGetHeight(self.readCountBtn.frame) + 20;
+    }
 }
 
+// 计算collectionView的尺寸
+- (CGSize)caculatePicViewSize:(NSInteger)count {
+    
+    CGFloat itemWH = 0.0;
+    CGFloat itemMargin = 5;
+    
+    if (count == 0) {
+        self.picBottomLayoutConst.constant = 0;
+        return CGSizeZero;
+    }
+    
+    self.picBottomLayoutConst.constant = 10;
+    
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.pictureCollectionView.collectionViewLayout;
+    
+    if (count == 1) {
+        itemWH = 150;
+        layout.itemSize = CGSizeMake(itemWH, itemWH);
+        return CGSizeMake(itemWH, itemWH);
+    }
+
+    // 其他
+    // 计算行数
+    NSInteger rows = (count - 1) / 3 + 1;
+
+    CGFloat contentWidth = kScreenW - 10 - self.nameLabel.frame.origin.x;
+    
+    itemWH = (contentWidth - 2 * itemMargin) / 3;
+    
+    if (count == 4) {
+        layout.itemSize = CGSizeMake(itemWH, itemWH);
+        return CGSizeMake(itemWH * 2 + itemMargin, itemWH * 2 + itemMargin);
+    }
+
+    layout.itemSize = CGSizeMake(itemWH, itemWH);
+    
+    CGFloat picViewW = contentWidth;
+    CGFloat picViewH = rows * itemWH + (rows - 1) * itemMargin;
+    
+    
+    return CGSizeMake(picViewW, picViewH);
+}
 @end

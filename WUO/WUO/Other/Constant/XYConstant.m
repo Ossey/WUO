@@ -10,3 +10,4 @@
 
 NSString * const XYTabBarButtonDidRepeatClickNotification = @"XYTabBarButtonDidRepeatClickNotification";
 NSString * const XYUserLoginStatuKey = @"XYUserLoginStatuKey";
+NSString * const XYDynamicViewCellHeightDidChangeNote = @"XYDynamicViewCellHeightDidChangeNote";

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181381761E1B38C2001E8264 /* XYRefreshGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 181381751E1B38C2001E8264 /* XYRefreshGifFooter.m */; };
+		181381791E1B4AC0001E8264 /* XYDynamicTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181381781E1B4AC0001E8264 /* XYDynamicTableView.m */; };
+		1813817C1E1B882E001E8264 /* XYPictureCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1813817B1E1B882E001E8264 /* XYPictureCollectionView.m */; };
+		1813817F1E1BF49E001E8264 /* XYDynamicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1813817E1E1BF49E001E8264 /* XYDynamicViewModel.m */; };
 		183F93901E18BFA200875416 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F938F1E18BFA200875416 /* main.m */; };
 		183F939B1E18BFA200875416 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 183F939A1E18BFA200875416 /* Assets.xcassets */; };
 		183F93DC1E18F2A400875416 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 183F93D71E18F2A400875416 /* AppDelegate.m */; };
@@ -50,6 +54,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181381741E1B38C2001E8264 /* XYRefreshGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRefreshGifFooter.h; sourceTree = "<group>"; };
+		181381751E1B38C2001E8264 /* XYRefreshGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRefreshGifFooter.m; sourceTree = "<group>"; };
+		181381771E1B4AC0001E8264 /* XYDynamicTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDynamicTableView.h; sourceTree = "<group>"; };
+		181381781E1B4AC0001E8264 /* XYDynamicTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDynamicTableView.m; sourceTree = "<group>"; };
+		1813817A1E1B882E001E8264 /* XYPictureCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPictureCollectionView.h; sourceTree = "<group>"; };
+		1813817B1E1B882E001E8264 /* XYPictureCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPictureCollectionView.m; sourceTree = "<group>"; };
+		1813817D1E1BF49E001E8264 /* XYDynamicViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDynamicViewModel.h; sourceTree = "<group>"; };
+		1813817E1E1BF49E001E8264 /* XYDynamicViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDynamicViewModel.m; sourceTree = "<group>"; };
 		183F938B1E18BFA200875416 /* WUO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WUO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		183F938F1E18BFA200875416 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		183F939A1E18BFA200875416 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
@@ -287,6 +299,8 @@
 				18CA22231E1AB405005F1C87 /* XYDynamicInfo.m */,
 				18CA22251E1AB5D5005F1C87 /* XYDynamicItem.h */,
 				18CA22261E1AB5D5005F1C87 /* XYDynamicItem.m */,
+				1813817D1E1BF49E001E8264 /* XYDynamicViewModel.h */,
+				1813817E1E1BF49E001E8264 /* XYDynamicViewModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,9 +310,13 @@
 			children = (
 				18CA22111E1A3CBC005F1C87 /* XYDynamicViewCell.h */,
 				18CA22121E1A3CBC005F1C87 /* XYDynamicViewCell.m */,
+				1813817A1E1B882E001E8264 /* XYPictureCollectionView.h */,
+				1813817B1E1B882E001E8264 /* XYPictureCollectionView.m */,
 				18CA22131E1A3CBC005F1C87 /* XYDynamicViewCell.xib */,
 				18CA22161E1A4C83005F1C87 /* XYDynamicToolButton.h */,
 				18CA22171E1A4C83005F1C87 /* XYDynamicToolButton.m */,
+				181381771E1B4AC0001E8264 /* XYDynamicTableView.h */,
+				181381781E1B4AC0001E8264 /* XYDynamicTableView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -575,6 +593,8 @@
 			children = (
 				18CA22291E1ACA0A005F1C87 /* XYRefreshGifHeader.h */,
 				18CA222A1E1ACA0A005F1C87 /* XYRefreshGifHeader.m */,
+				181381741E1B38C2001E8264 /* XYRefreshGifFooter.h */,
+				181381751E1B38C2001E8264 /* XYRefreshGifFooter.m */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -720,6 +740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1813817F1E1BF49E001E8264 /* XYDynamicViewModel.m in Sources */,
 				18CA22141E1A3CBC005F1C87 /* XYDynamicViewCell.m in Sources */,
 				18CA21EC1E1A1693005F1C87 /* XYThirdPartyLoginView.m in Sources */,
 				18CA22061E1A258B005F1C87 /* UIImageView+XYExtension.m in Sources */,
@@ -728,6 +749,7 @@
 				183F94201E195B8500875416 /* XYCustomNavController.m in Sources */,
 				183F94021E19182500875416 /* XYConstant.m in Sources */,
 				18CA21E91E1A1693005F1C87 /* XYLaunchView.m in Sources */,
+				181381761E1B38C2001E8264 /* XYRefreshGifFooter.m in Sources */,
 				18CA21D61E19FC22005F1C87 /* UIView+XYExtension.m in Sources */,
 				18CA22181E1A4C83005F1C87 /* XYDynamicToolButton.m in Sources */,
 				18CA21EB1E1A1693005F1C87 /* XYLoginView.m in Sources */,
@@ -746,8 +768,10 @@
 				183F93FF1E19173B00875416 /* MainTabBar.m in Sources */,
 				18CA221E1E1A6728005F1C87 /* XYUserInfoItem.m in Sources */,
 				183F93DC1E18F2A400875416 /* AppDelegate.m in Sources */,
+				181381791E1B4AC0001E8264 /* XYDynamicTableView.m in Sources */,
 				18CA22241E1AB405005F1C87 /* XYDynamicInfo.m in Sources */,
 				18CA21CB1E19EFBB005F1C87 /* WUOHTTPRequest.m in Sources */,
+				1813817C1E1B882E001E8264 /* XYPictureCollectionView.m in Sources */,
 				18CA21F71E1A1EE4005F1C87 /* NSString+MD5.m in Sources */,
 				183F93EB1E18F47E00875416 /* XYComposeViewController.m in Sources */,
 				183F93F71E18F4E500875416 /* XYMineViewController.m in Sources */,

@@ -64,14 +64,14 @@
         
         if ([responseObject[@"code"] integerValue] == 0) {
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                 delegate.isLogin = YES;
             });
         }
         
         [[NSUserDefaults standardUserDefaults] setObject:responseObject[@"code"] forKey:XYUserLoginStatuKey];
-        
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [self xy_showMessage:[NSString stringWithFormat:@"登录%@", responseObject[@"codeMsg"]]];
     }];
     
