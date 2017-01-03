@@ -20,12 +20,13 @@
 @implementation XYDynamicTableView {
         
         NSMutableArray<XYDynamicViewModel *> *_dynamicList;
-        NSMutableArray *_needLoadList;
         XYDynamicInfo *_dynamicInfo;
     
 }
 
 static NSString * const cellIdentifier = @"XYDynamicViewCell";
+
+
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     
@@ -33,9 +34,8 @@ static NSString * const cellIdentifier = @"XYDynamicViewCell";
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.dataSource = self;
         self.delegate = self;
-        
+       
         _dynamicList = [NSMutableArray arrayWithCapacity:0];
-        _needLoadList = [NSMutableArray arrayWithCapacity:0];
         
         [self registerNib:[UINib nibWithNibName:@"XYDynamicViewCell" bundle:nil] forCellReuseIdentifier:@"XYDynamicViewCell"];
         
@@ -47,6 +47,8 @@ static NSString * const cellIdentifier = @"XYDynamicViewCell";
         self.mj_footer = [XYRefreshGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
         
         [self.mj_header beginRefreshing];
+    
+        
     }
     return self;
 }
@@ -76,7 +78,7 @@ static NSString * const cellIdentifier = @"XYDynamicViewCell";
             for (id obj in responseObject[@"datas"]) {
                 if ([obj isKindOfClass:[NSDictionary class]]) {
                     
-                    XYDynamicItem *item = [XYDynamicItem dynamicItemWithDict:obj];
+                    XYDynamicItem *item = [XYDynamicItem dynamicItemWithDict:obj info:_dynamicInfo];
                     XYDynamicViewModel *viewModel = [XYDynamicViewModel dynamicViewModelWithItem:item info:_dynamicInfo];
                     [_dynamicList addObject:viewModel];
                 }
@@ -104,7 +106,7 @@ static NSString * const cellIdentifier = @"XYDynamicViewCell";
     XYDynamicViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     XYDynamicViewModel *viewModel = _dynamicList[indexPath.row];
-    cell.item = viewModel.item;
+    cell.viewModel = viewModel;
     
     return cell;
     
@@ -114,45 +116,14 @@ static NSString * const cellIdentifier = @"XYDynamicViewCell";
     
     XYDynamicViewModel *viewModel = _dynamicList[indexPath.row];
     
-//    return viewModel.item.cellHeight;
-    return 350;
+    return viewModel.cellHeight;
+//    return 350;
 
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSLog(@"%@", NSStringFromCGRect([tableView dequeueReusableCellWithIdentifier:cellIdentifier].frame));
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [_needLoadList removeAllObjects];
-}
-
-//按需加载 - 如果目标行与当前行相差超过指定行数，只在目标滚动范围的前后指定3行加载。
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    NSIndexPath *ip = [self indexPathForRowAtPoint:CGPointMake(0, targetContentOffset->y)];
-    NSIndexPath *cip = [[self indexPathsForVisibleRows] firstObject];
-    NSInteger skipCount = 8;
-    if (labs(cip.row-ip.row)>skipCount) {
-        NSArray *temp = [self indexPathsForRowsInRect:CGRectMake(0, targetContentOffset->y, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
-        NSMutableArray *arr = [NSMutableArray arrayWithArray:temp];
-        if (velocity.y<0) {
-            NSIndexPath *indexPath = [temp lastObject];
-            if (indexPath.row+3<_dynamicList.count) {
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+1 inSection:0]];
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+2 inSection:0]];
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row+3 inSection:0]];
-            }
-        } else {
-            NSIndexPath *indexPath = [temp firstObject];
-            if (indexPath.row>3) {
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-3 inSection:0]];
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-2 inSection:0]];
-                [arr addObject:[NSIndexPath indexPathForRow:indexPath.row-1 inSection:0]];
-            }
-        }
-        [_needLoadList addObjectsFromArray:arr];
-    }
 }
 
 - (void)dealloc {

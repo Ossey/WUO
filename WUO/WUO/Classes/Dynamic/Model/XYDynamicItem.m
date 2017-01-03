@@ -11,17 +11,17 @@
 
 @implementation XYDynamicItem
 
-- (instancetype)initWithDict:(NSDictionary *)dict {
+- (instancetype)initWithDict:(NSDictionary *)dict info:(XYDynamicInfo *)info {
     if (self = [super init]) {
 
         [self setValuesForKeysWithDictionary:dict];
-        
+        self.info = info;
         if (dict[@"imgList"]) {
             NSMutableArray *temArrM = [NSMutableArray arrayWithCapacity:1];
             for (id obj in dict[@"imgList"]) {
                 if ([obj isKindOfClass:[NSDictionary class]]) {
                     XYDynamicImgItem *imgItm = [XYDynamicImgItem dynamicImgItemWithDict:obj];
-                    
+                    imgItm.info = info;
                     [temArrM addObject:imgItm];
                 }
             }
@@ -32,9 +32,9 @@
     return self;
 }
 
-+ (instancetype)dynamicItemWithDict:(NSDictionary *)dict {
++ (instancetype)dynamicItemWithDict:(NSDictionary *)dict info:(XYDynamicInfo *)info {
     
-    return [[self alloc] initWithDict:dict];
+    return [[self alloc] initWithDict:dict info:info];
 }
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {}
@@ -44,7 +44,7 @@
     if ([self.head containsString:@"http://"]) {
         fullPath = self.head;
     } else {
-        fullPath = [[XYDynamicInfo shareInstance].basePath stringByAppendingString:self.head];
+        fullPath = [self.info.basePath stringByAppendingString:self.head];
     }
     return [NSURL URLWithString:fullPath];
 }
@@ -72,7 +72,7 @@
     
     if (self.imgUrl) {
         
-        return [NSURL URLWithString:[[XYDynamicInfo shareInstance].basePath stringByAppendingString:self.imgUrl]];
+        return [NSURL URLWithString:[self.info.basePath stringByAppendingString:self.imgUrl]];
     }
     
     return nil;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class XYDynamicInfo, XYDynamicImgItem;
+@class XYDynamicInfo;
 @interface XYDynamicItem : NSObject
 
 @property (nonatomic, assign) NSInteger commentCount; // 评论次数
@@ -40,13 +40,10 @@
 
 // 扩展属性
 @property (nonatomic, strong) NSURL *headerImageURL;
-@property (nonatomic, assign) CGFloat cellHeight;
+@property (nonatomic, strong)XYDynamicInfo *info;
 
-
-- (instancetype)initWithDict:(NSDictionary *)dict;
-+ (instancetype)dynamicItemWithDict:(NSDictionary *)dict;
-
-
+- (instancetype)initWithDict:(NSDictionary *)dict info:(XYDynamicInfo *)info;
++ (instancetype)dynamicItemWithDict:(NSDictionary *)dict info:(XYDynamicInfo *)info;
 
 @end
 
@@ -59,7 +56,7 @@
 @property (nonatomic, assign) NSInteger uid;
 
 // 扩展属性
-
+@property (nonatomic, strong)XYDynamicInfo *info;
 @property (nonatomic, strong) NSURL *imgFullURL;
 @property (nonatomic, assign) CGSize imgSize;            // 图片的原始尺寸
 

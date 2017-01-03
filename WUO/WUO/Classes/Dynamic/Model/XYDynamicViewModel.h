@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) XYDynamicInfo *info;
 @property (nonatomic, strong) XYDynamicItem *item;
+@property (nonatomic, assign) CGFloat cellHeight;
 
 + (instancetype)dynamicViewModelWithItem:(XYDynamicItem *)item info:(XYDynamicInfo *)info;
 @end

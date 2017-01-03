@@ -8,11 +8,10 @@
 
 #import "XYDynamicViewCell.h"
 #import <UIImageView+WebCache.h>
-#import "XYDynamicItem.h"
+#import "XYDynamicViewModel.h"
 #import "XYDynamicToolButton.h"
 #import "UIImage+XYExtension.h"
 #import "XYPictureCollectionView.h"
-#import "XYDynamicInfo.h"
 
 @interface XYDynamicViewCell ()
 @property (weak, nonatomic) IBOutlet UIButton *investBtn;
@@ -35,11 +34,9 @@
 
 @end
 
-@implementation XYDynamicViewCell //{
-    
-//    BOOL _isDrawing;
-//    NSInteger _drawColorFlag;
-//}
+@implementation XYDynamicViewCell {
+    BOOL _isRefreshed;
+}
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -64,10 +61,11 @@
 
     // Configure the view for the selected state
 }
-
-- (void)setItem:(XYDynamicItem *)item {
+- (void)setViewModel:(XYDynamicViewModel *)viewModel {
     
-    _item = item;
+    _viewModel = viewModel;
+    
+    XYDynamicItem *item = viewModel.item;
     self.pictureCollectionView.dynamicItem = item;
     
     self.pictureCollectionView.hidden = item.imgCount == 0;
@@ -98,18 +96,31 @@
     // 计算cell的高度
     if (item.content.length && item.title.length && self.pictureCollectionView.hidden) {
         contentMaxY = CGRectGetMaxY(self.contenLabel.frame);
-    } else if (!item.content.length && item.title.length && !item.imgCount) {
+    } else if (!item.content.length && item.title.length && self.pictureCollectionView.hidden) {
         contentMaxY = CGRectGetMaxY(self.title_label.frame);
     } else if (item.content.length && item.title.length && !self.pictureCollectionView.hidden ) {
         contentMaxY = CGRectGetMaxY(self.contenLabel.frame);
+    } else if (!item.content.length && !item.title.length && !self.pictureCollectionView.hidden) {
+        contentMaxY = CGRectGetMaxY(self.pictureCollectionView.frame);
+    } else if (!item.content.length && !self.pictureCollectionView.hidden && item.title.length) {
+        contentMaxY = CGRectGetMaxY(self.title_label.frame);
     }
     
-    if (item.cellHeight == 0) {
+    if (viewModel.cellHeight == 0) {
+        _isRefreshed = [[NSUserDefaults standardUserDefaults] integerForKey:@"isRefreshedKey"];
+        if (_isRefreshed == NO) {
+            UITableView *tableView = self.superview.superview;
+            [tableView reloadData];
+            [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"isRefreshedKey"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
         
         [self layoutIfNeeded];
-        item.cellHeight = contentMaxY + CGRectGetHeight(self.toolView.frame) + 5 + 10 + 20 + CGRectGetHeight(self.readCountBtn.frame) + 20;
+        viewModel.cellHeight = contentMaxY + CGRectGetHeight(self.toolView.frame) + 5 + 10 + 20 + CGRectGetHeight(self.readCountBtn.frame) + 20;
+        
     }
 }
+
 
 // 计算collectionView的尺寸
 - (CGSize)caculatePicViewSize:(NSInteger)count {
